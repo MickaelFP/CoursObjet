@@ -19,7 +19,7 @@ private:
 	int defense = 10;
 	float percentCrit = 0.9f;
 	int heal = 10;
-	arme = Arnme();
+	Arme* arme;
 
 public:
     //CONSTRUCTEURS
@@ -55,6 +55,10 @@ public:
 	float getPercentCrit() const;
 	void setPercentCrit(float d);
 
+	//GETTER/SETTER ARME
+	Arme* getArme() const;
+	void setArme(Arme* a);
+
     //AFFICHE LES INFOS DU PERSO
 	void showInfos() const;
 
@@ -66,7 +70,7 @@ public:
     Personnage operator+(Personnage const & p);
     void operator+=(Personnage const & p);
 
-	bool operator!=(Personnage & p);
+    bool operator!=(Personnage & p);
 };
 
 #endif // PERSONNAGE_H

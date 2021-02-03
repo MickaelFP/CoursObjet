@@ -3,6 +3,15 @@
 int main() {
     srand(time(NULL));
 	Personnage p1;
+    Arme a1;
+
+    Arme a2(50,2,"feu",5,500);
+
+    cout << "Degats de l'arme = "<<a2.getDegats()<<endl;
+    p1.setArme(&a2);
+    p1.getArme()->setDegats(75);
+    cout << "Degats de l'arme = "<<a2.getDegats()<<endl;
+
 	p1.setNom("Jean");
 	p1.setAttack(50);
 	p1.setDefense(20);
@@ -10,26 +19,19 @@ int main() {
 	p1.showInfos();
 	cout << endl;
 
-	Arme a1;
-	a1.setDegats (100);
-	a1.setPortee (10);
-    a1.setType = "Bob";
-	a1.setNiveauRequis = 10;
-	a1.setPrix = 0.9f;
-	a1.showInfos();
-
-	Arme a2(50,2,"tranchante",5,500);
-	cout << "Degats de l'arme = " << a2.getArme().getDegats() << endl;
-	p1.setArme(a2);
-	p1.getArme().setDegats(75);
-	cout << "Degats de l'arme = " << a2.getArme().getDegats() << endl;
-
 	cout << "	personnage 2  " << endl;
 	Personnage p2(p1);
 	p2.setNom("Richard");
 	p2.setAttack(600);
 	p2.showInfos();
+	p2.setArme(&a2);
+	p2.getArme()->setDegats(100);
 	cout << endl;
+
+
+    cout << "Degats de l'arme = "<<a2.getDegats()<<endl;
+    cout << "Degats de l'arme depuis P1 = "<<p1.getArme()->getDegats()<<endl;
+    cout << "Degats de l'arme depuis P2 = "<<p2.getArme()->getDegats()<<endl;
 
 	p1.~Personnage();
 
@@ -61,10 +63,10 @@ int main() {
 	cout << "heal de p2 = "<<p2.getHeal()<<endl;
 	cout << "PV de P3 = "<<p3.getPv()<<endl;
 
-	if(p1 == p2){
-        cout<<p1.getNom()<< " est egal a "<<p2.getNom()<<endl;
-	}else{
+	if(p1 != p2){
         cout<<p1.getNom()<< " pas egal a "<<p2.getNom()<<endl;
+	}else{
+        cout<<p1.getNom()<< " egal a "<<p2.getNom()<<endl;
 	}
 
 	Personnage fusion;
