@@ -127,6 +127,10 @@ void Personnage::showInfos() const
 	cout << "attack : " << getAttack() << endl;
 	cout << "defense : " << getDefense() << endl;
 	cout << "crit : " << getPercentCrit() * 100 << "%" << endl;
+	cout << "Arme: " << arme->getArme() << endl;
+	cout << "degats : " << arme->getDegats() << endl;
+	cout << "type : " << arme->getType() << endl;
+	cout << "portee : " << arme->getPortee() << endl;
 }
 
 void Personnage::attackPlayer(Personnage* cible){

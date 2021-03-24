@@ -1,11 +1,17 @@
-#include "Personnage.h"
+#include "Guerrier.h"
+#include "Mage.h"
 
 int main() {
     srand(time(NULL));
 	Personnage p1;
-    Arme a1;
+	Guerrier g(1000);
+	Mage m(100);
+	g.test();
+	m.test();
+    Arme a1(10,1,"Physic",0,100);
+	return 0;
 
-    Arme a2(50,2,"feu",5,500);
+    /*Arme a2(50,2,"feu",5,500);
 
     cout << "Degats de l'arme = "<<a2.getDegats()<<endl;
     p1.setArme(&a2);
@@ -75,5 +81,6 @@ int main() {
 
     fusion += p4;
     fusion.showInfos();
-    return 0;
+	
+    return 0;*/
 }
